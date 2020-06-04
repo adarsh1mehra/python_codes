@@ -1,0 +1,42 @@
+class dog:
+  def __init__(self,name,date,month,year,speakText):
+    self.name=name
+    self.date=date
+    self.month=month
+    self.year=year
+    self.speakText=speakText
+
+  def speak(self):
+    return self.speakText
+
+  def getName(self):
+    return self.name
+
+  def birthDate(self):
+    return str(self.date)+'/'+str(self.month)+'/'+str(self.year)
+
+  def changebark(self,bark):
+    self.speakText=bark
+
+  def __add__(self,otherDog):
+    return dog('puppy of '+self.name+'and'+otherDog.name, self.month,self.date,self.year+1,self.speakText+otherDog.speakText)
+
+def main():
+  boyDog=dog('Mesa',14,7,1998,'WOOOOF')
+  girlDog=dog('laila',15,9,2000,'huhuha')
+  print(boyDog.speak())
+  print(girlDog.speak())
+  print(boyDog.birthDate())
+  print(girlDog.birthDate())
+  boyDog.changebark('WOOOOOFYYYYY')
+  print(boyDog.speak())
+  puppy=boyDog+girlDog
+  print(puppy.speak())
+  print(puppy.getName())
+  print(puppy.birthDate())
+  #puppy.changebark('oooooooooooo')
+  print(puppy.speak())
+
+if __name__=='__main__':
+  main()
+
